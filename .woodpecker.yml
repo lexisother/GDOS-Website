@@ -1,0 +1,22 @@
+pipeline:
+    build:
+        image: node:latest
+        pull: true
+        commands:
+            - npm install
+            - npm run lint
+            - npm run build
+
+    deploy:
+        image: debian:latest
+        pull: true
+        commands:
+            - apt update
+            - apt install -y curl openssh-client sshpass
+            - mkdir ~/.ssh
+            - curl https://nova-vps.ml/~alyxia/static/config -o ~/.ssh/config
+            - echo "$SSH_KEY" > ~/.ssh/id_rsa
+            - chmod 400 ~/.ssh/id_rsa
+            - ssh -o StrictHostKeyChecking=no vps 'cd /var/www/html; rm -rf ./*'
+            - scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -r public/* vps:/var/www/html
+        secrets: [ssh_key]
