@@ -16,6 +16,8 @@ module.exports = {
             sassOptions: {
                 includePaths: ["src/css"]
             }
-        })
+        }),
+        resolvePlugin("gatsby-plugin-image"),
+        resolvePlugin("gatsby-plugin-sharp")
     ]
 };

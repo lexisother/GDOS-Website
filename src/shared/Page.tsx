@@ -10,8 +10,8 @@ interface MetaProps {
 }
 function Meta({title, description, keywords}: MetaProps): JSX.Element {
     const defaults = {
-        title: "Tenplate",
-        description: "Template"
+        title: "Gilde DevOps Solutions",
+        description: "De website van Gilde DevOps Solutions"
     };
 
     const actual = {

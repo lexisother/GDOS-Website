@@ -1,1 +1,44 @@
-// Add all your styling here.
+@import "./normalize.css";
+
+html {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+        "Helvetica Neue", sans-serif;
+    font-size: 20px;
+    color: rgb(38, 38, 38);
+    line-height: 1.25;
+}
+
+body {
+    padding: 2rem 2rem;
+    background: #f9fafb;
+    color: #111827;
+}
+
+main {
+    display: block;
+    text-align: center;
+}
+
+hr {
+    width: 75%;
+    height: 1px;
+    margin: 1.5rem auto;
+    border: 0;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+.page-container {
+    max-width: 920px;
+    padding: 0 1rem 2rem;
+    margin: auto;
+}
+
+// Home {{{
+.figure {
+    display: block;
+}
+.logo {
+    margin: 1rem auto;
+    text-align: center;
+}
+// }}}
