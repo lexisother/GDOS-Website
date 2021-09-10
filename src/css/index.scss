@@ -28,10 +28,28 @@ hr {
     background-color: rgb(50, 50, 50);
 }
 
+a {
+    color: cornflowerblue;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+        text-decoration-style: dotted;
+    }
+    &:visited {
+        color: cornflowerblue;
+        text-decoration: none;
+    }
+}
+
 .page-container {
     max-width: 920px;
     padding: 0 1rem 2rem;
     margin: auto;
+
+    footer {
+        text-align: center;
+    }
 }
 
 // Home {{{

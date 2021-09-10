@@ -42,6 +42,14 @@ function Meta({title, description, keywords}: MetaProps): JSX.Element {
     );
 }
 
+function Navigation(): JSX.Element {
+    return (
+        <footer>
+            <a href="/">Home</a> | <a href="/members">Members</a>
+        </footer>
+    );
+}
+
 interface PageProps extends MetaProps {
     children: React.ReactNode;
 }
@@ -51,6 +59,10 @@ const Page = ({children, ...props}: PageProps): JSX.Element => {
             <Meta {...props} />
 
             <main>{children}</main>
+
+            <hr />
+
+            <Navigation />
         </div>
     );
 };
