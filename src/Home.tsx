@@ -18,26 +18,7 @@ export default function HomePage(): JSX.Element {
                 />
             </figure>
             <hr />
-            <div className="cards">
-                <Profile name="test">
-                    <StaticImage src="./images/logo.png" alt="logo" height={100} />
-                </Profile>
-                <Profile name="test">
-                    <StaticImage src="./images/logo.png" alt="logo" height={100} />
-                </Profile>
-                <Profile name="test">
-                    <StaticImage src="./images/logo.png" alt="logo" height={100} />
-                </Profile>
-                <Profile name="test">
-                    <StaticImage src="./images/logo.png" alt="logo" height={100} />
-                </Profile>
-                <Profile name="test">
-                    <StaticImage src="./images/logo.png" alt="logo" height={100} />
-                </Profile>
-                <Profile name="test">
-                    <StaticImage src="./images/logo.png" alt="logo" height={100} />
-                </Profile>
-            </div>
+            <p>TODO: Pitch</p>
         </Page>
     );
 }
