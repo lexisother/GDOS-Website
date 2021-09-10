@@ -1,6 +1,7 @@
 import React from "react";
 import {StaticImage} from "gatsby-plugin-image";
 import Page from "./shared/Page";
+import Profile from "./shared/Profile";
 
 export default function HomePage(): JSX.Element {
     return (
@@ -17,8 +18,25 @@ export default function HomePage(): JSX.Element {
                 />
             </figure>
             <hr />
-            <div>
-                <p>Temp</p>
+            <div className="cards">
+                <Profile name="test">
+                    <StaticImage src="./images/logo.png" alt="logo" height={100} />
+                </Profile>
+                <Profile name="test">
+                    <StaticImage src="./images/logo.png" alt="logo" height={100} />
+                </Profile>
+                <Profile name="test">
+                    <StaticImage src="./images/logo.png" alt="logo" height={100} />
+                </Profile>
+                <Profile name="test">
+                    <StaticImage src="./images/logo.png" alt="logo" height={100} />
+                </Profile>
+                <Profile name="test">
+                    <StaticImage src="./images/logo.png" alt="logo" height={100} />
+                </Profile>
+                <Profile name="test">
+                    <StaticImage src="./images/logo.png" alt="logo" height={100} />
+                </Profile>
             </div>
         </Page>
     );
