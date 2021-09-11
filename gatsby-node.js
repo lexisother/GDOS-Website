@@ -11,5 +11,10 @@ module.exports = {
             component: path.resolve("./src/Home.tsx"),
             context: null
         });
+        actions.createPage({
+            path: "/members",
+            component: path.resolve("./src/Members.tsx"),
+            context: null
+        });
     }
 };
