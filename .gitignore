@@ -2,6 +2,7 @@
 .cache
 public
 src/__generated__
+*.~*
 
 # Logs
 logs
