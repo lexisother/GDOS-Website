@@ -1,9 +1,29 @@
 import React from "react";
+import {graphql} from "gatsby";
 import {StaticImage} from "gatsby-plugin-image";
 import Page from "./shared/Page";
 import Profile from "./shared/Profile";
 
-export default function MemberPage(): JSX.Element {
+export const query = graphql`
+    query {
+        allMembersCsv {
+            nodes {
+                Name
+                Age
+            }
+        }
+    }
+`;
+
+interface MemberPageProps {
+    data: {allMembersCsv: GatsbyTypes.MembersCsvConnection};
+}
+export default function MemberPage({data}: MemberPageProps): JSX.Element {
+    const members = [...data.allMembersCsv.nodes].map((node) => ({
+        name: node.Name!,
+        age: node.Age!
+    }));
+
     return (
         <Page>
             <h1>Members</h1>
@@ -19,24 +39,13 @@ export default function MemberPage(): JSX.Element {
             </figure>
             <hr />
             <div className="cards">
-                <Profile name="test">
-                    <StaticImage src="./images/logo.png" alt="logo" height={100} />
-                </Profile>
-                <Profile name="test">
-                    <StaticImage src="./images/logo.png" alt="logo" height={100} />
-                </Profile>
-                <Profile name="test">
-                    <StaticImage src="./images/logo.png" alt="logo" height={100} />
-                </Profile>
-                <Profile name="test">
-                    <StaticImage src="./images/logo.png" alt="logo" height={100} />
-                </Profile>
-                <Profile name="test">
-                    <StaticImage src="./images/logo.png" alt="logo" height={100} />
-                </Profile>
-                <Profile name="test">
-                    <StaticImage src="./images/logo.png" alt="logo" height={100} />
-                </Profile>
+                {members[0]
+                    ? members.map((member) => (
+                          <Profile name={member.name} description={`Age: ${member.age}`}>
+                              <StaticImage src="./images/logo.png" alt="logo" height={100} />
+                          </Profile>
+                      ))
+                    : "Nobody here but us chickens."}
             </div>
         </Page>
     );

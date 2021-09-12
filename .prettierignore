@@ -8,6 +8,8 @@ LICENSE
 # Specific to this repository
 public/
 src/images/
+src/__generated__
+src/data
 .cache/
 .github/
 .vercel/

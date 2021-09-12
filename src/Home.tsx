@@ -1,7 +1,6 @@
 import React from "react";
 import {StaticImage} from "gatsby-plugin-image";
 import Page from "./shared/Page";
-import Markdown from "./shared/Markdown";
 
 export default function HomePage(): JSX.Element {
     return (
@@ -18,7 +17,7 @@ export default function HomePage(): JSX.Element {
                 />
             </figure>
             <hr />
-            <Markdown text={`# Test\n## Test`} />
+            <p>TODO: Pitch</p>
         </Page>
     );
 }
