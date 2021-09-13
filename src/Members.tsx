@@ -6,7 +6,7 @@ import Profile from "./shared/Profile";
 
 export const query = graphql`
     query {
-        allMembersCsv {
+        allMembersXlsxSheet1 {
             nodes {
                 Name
                 Age
@@ -16,10 +16,10 @@ export const query = graphql`
 `;
 
 interface MemberPageProps {
-    data: {allMembersCsv: GatsbyTypes.MembersCsvConnection};
+    data: {allMembersXlsxSheet1: GatsbyTypes.MembersXlsx__Sheet1Connection};
 }
 export default function MemberPage({data}: MemberPageProps): JSX.Element {
-    const members = [...data.allMembersCsv.nodes].map((node) => ({
+    const members = [...data.allMembersXlsxSheet1.nodes].map((node) => ({
         name: node.Name!,
         age: node.Age!
     }));

@@ -15,10 +15,7 @@ module.exports = {
             name: "data",
             path: `${__dirname}/src/data`
         }),
-        resolvePlugin("gatsby-transformer-csv", {
-            delimiter: ",",
-            checkType: true
-        }),
+        resolvePlugin("gatsby-transformer-excel"),
         resolvePlugin("gatsby-source-filesystem", {
             path: __dirname,
             name: `leasot`,
