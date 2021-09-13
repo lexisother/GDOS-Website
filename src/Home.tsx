@@ -5,9 +5,10 @@ import {StaticImage} from "gatsby-plugin-image";
 import Page from "./shared/Page";
 
 export default function HomePage(): JSX.Element {
+    // TODO: Write a short pitch
     const markdown = `Dit is de home-pagina van Gilde DevOps Solutions.
 
-TODO:
+Algemene TODO:
 * [x] Markdown rendering (evt blog-posts)
 * [x] CSV parsing voor [members](/members)
 * [ ] Windows tutorial?

@@ -16,7 +16,21 @@ module.exports = {
             path: `${__dirname}/src/data`
         }),
         resolvePlugin("gatsby-transformer-csv", {
-            delimiter: ","
+            delimiter: ",",
+            checkType: true
+        }),
+        resolvePlugin("gatsby-source-filesystem", {
+            path: __dirname,
+            name: `leasot`,
+            ignore: [
+                /\.*.*\/(node_modules|\.cache|public|__generated__|static|dist|\.yarn)\/./,
+                /\.*.\.(log|jpe?g|png|gif|ico|json|map|gz|pdf)/
+            ]
+        }),
+        resolvePlugin("gatsby-transformer-leasot", {
+            sourceInstanceName: "leasot",
+            customTags: ["NOTE"],
+            mode: "text"
         }),
         resolvePlugin("gatsby-plugin-react-helmet"),
         resolvePlugin("gatsby-plugin-sass", {

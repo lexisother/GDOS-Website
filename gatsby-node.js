@@ -16,5 +16,10 @@ module.exports = {
             component: path.resolve("./src/Members.tsx"),
             context: null
         });
+        actions.createPage({
+            path: "/todo",
+            component: path.resolve("./src/Todo.tsx"),
+            context: null
+        });
     }
 };
