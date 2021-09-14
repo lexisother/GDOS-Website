@@ -16,7 +16,24 @@ module.exports = {
             path: `${__dirname}/data`
         }),
         resolvePlugin("gatsby-transformer-excel"),
-        resolvePlugin("gatsby-transformer-remark"),
+        resolvePlugin("gatsby-transformer-remark", {
+            plugins: [
+                // Transform image links
+                resolvePlugin("gatsby-remark-images", {
+                    maxWidth: 1280,
+                    linkImagesToOriginal: false
+                }),
+
+                // Syntax highlighting
+                resolvePlugin("gatsby-remark-prismjs", {
+                    classPrefix: "language-",
+                    noInlineHighlight: true
+                }),
+
+                // Markdown extensions
+                resolvePlugin("gatsby-remark-smartypants")
+            ]
+        }),
         resolvePlugin("gatsby-source-filesystem", {
             path: __dirname,
             name: `leasot`,

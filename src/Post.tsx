@@ -2,6 +2,7 @@ import React from "react";
 import {graphql} from "gatsby";
 import {format as formatDate, formatDuration} from "date-fns";
 import {FaCalendar, FaClock} from "react-icons/fa";
+import "prismjs/themes/prism-tomorrow.css";
 import Page from "./shared/Page";
 
 export const query = graphql`
