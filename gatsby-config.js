@@ -13,9 +13,10 @@ module.exports = {
     plugins: [
         resolvePlugin("gatsby-source-filesystem", {
             name: "data",
-            path: `${__dirname}/src/data`
+            path: `${__dirname}/data`
         }),
         resolvePlugin("gatsby-transformer-excel"),
+        resolvePlugin("gatsby-transformer-remark"),
         resolvePlugin("gatsby-source-filesystem", {
             path: __dirname,
             name: `leasot`,

@@ -9,7 +9,7 @@ LICENSE
 public/
 src/images/
 src/__generated__
-src/data
+data/
 .cache/
 .github/
 .vercel/
