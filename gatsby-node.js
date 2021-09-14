@@ -29,8 +29,8 @@ module.exports = {
             context: null
         });
         actions.createPage({
-            path: "/todo",
-            component: path.resolve("./src/Todo.tsx"),
+            path: "/roadmap",
+            component: path.resolve("./src/Roadmap.tsx"),
             context: null
         });
         actions.createPage({

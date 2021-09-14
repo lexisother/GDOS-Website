@@ -1,7 +1,6 @@
-// FIXME: Rename Todo.tsx and its components to Roadmap
-
 import React from "react";
 import {graphql} from "gatsby";
+import {FaGithub} from "react-icons/fa";
 import Page from "./shared/Page";
 
 export const query = graphql`
@@ -29,11 +28,11 @@ export const query = graphql`
 `;
 
 // TODO: Clean the fuck up
-interface TodoPageProps {
+interface RoadmapPageProps {
     data: {allLeasot: GatsbyTypes.LeasotConnection};
 }
-export default function TodoPage({data}: TodoPageProps): JSX.Element {
-    const todoDb = data.allLeasot.group.reduce(
+export default function RoadmapPage({data}: RoadmapPageProps): JSX.Element {
+    const roadmapDb = data.allLeasot.group.reduce(
         (result, each) => ({
             ...result,
             [each.fieldValue as string]: each
@@ -47,16 +46,16 @@ export default function TodoPage({data}: TodoPageProps): JSX.Element {
             <h1>Website Roadmap</h1>
             {sortArray.map((label) => {
                 /// @ts-expect-error This complains for God knows what reason. Will inspect later.
-                const group: GatsbyTypes.LeasotGroupConnection = todoDb[label];
+                const group: GatsbyTypes.LeasotGroupConnection = roadmapDb[label];
                 if (!group) {
                     return null;
                 }
 
                 return (
-                    <div className="todoList">
+                    <div className="roadmapList">
                         <div className="section-header">{label}</div>
-                        {group.nodes.map((todo) => (
-                            <TodoItem t={todo} key={todo.id} />
+                        {group.nodes.map((item) => (
+                            <RoadmapItem t={item} key={item.id} />
                         ))}
                     </div>
                 );
@@ -66,7 +65,7 @@ export default function TodoPage({data}: TodoPageProps): JSX.Element {
 }
 
 // TODO: Style this component
-function TodoItem({t}: {t: GatsbyTypes.Leasot}): JSX.Element {
+function RoadmapItem({t}: {t: GatsbyTypes.Leasot}): JSX.Element {
     const githubLink = `https://github.com/lexisother/GDOS-Website/tree/master/${t.todo!.file!.relativePath}#L${
         t.todo!.line
     }`;
@@ -75,6 +74,7 @@ function TodoItem({t}: {t: GatsbyTypes.Leasot}): JSX.Element {
             <div className="entry-name">{t.todo!.value!}</div>
             <div className="entry-info">
                 <div className="label">
+                    <FaGithub />
                     <a href={githubLink}>
                         {t.todo!.file!.relativePath}#L{t.todo!.line}
                     </a>

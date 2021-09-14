@@ -45,7 +45,7 @@ function Meta({title, description, keywords}: MetaProps): JSX.Element {
 function Navigation(): JSX.Element {
     return (
         <footer>
-            <a href="/">Home</a> | <a href="/members">Members</a> | <a href="/todo">Website TODO</a> |{" "}
+            <a href="/">Home</a> | <a href="/members">Members</a> | <a href="/todo">Roadmap</a> |{" "}
             <a href="/blog">Blog</a>
         </footer>
     );
