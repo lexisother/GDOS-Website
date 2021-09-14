@@ -17,7 +17,6 @@ Algemene TODO:
 
     return (
         <Page>
-            <h1>Home</h1>
             <figure className="avatar">
                 <StaticImage
                     className="logo"
@@ -29,7 +28,7 @@ Algemene TODO:
                 />
             </figure>
             <hr />
-            <Markdown children={markdown} plugins={[remarkGfm as any]} />
+            <Markdown children={markdown} plugins={[remarkGfm as any]} className="mainContent" />
         </Page>
     );
 }

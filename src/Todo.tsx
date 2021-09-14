@@ -1,8 +1,6 @@
-// FIXME: Rename Todo.tsx and its components to "Roadmap"
+// FIXME: Rename Todo.tsx and its components to Roadmap
 
 import React from "react";
-import Markdown from "react-markdown";
-import remarkGfm from "remark-gfm";
 import {graphql} from "gatsby";
 import Page from "./shared/Page";
 
@@ -56,7 +54,7 @@ export default function TodoPage({data}: TodoPageProps): JSX.Element {
 
                 return (
                     <div className="todoList">
-                        <h2>{label}</h2>
+                        <div className="section-header">{label}</div>
                         {group.nodes.map((todo) => (
                             <TodoItem t={todo} key={todo.id} />
                         ))}
@@ -73,11 +71,15 @@ function TodoItem({t}: {t: GatsbyTypes.Leasot}): JSX.Element {
         t.todo!.line
     }`;
     return (
-        <div className="todoItem">
-            <Markdown children={t.todo!.value!} components={{code: "code"}} remarkPlugins={[remarkGfm as any]} />
-            <a href={githubLink}>
-                {t.todo!.file!.relativePath}#L{t.todo!.line}
-            </a>
+        <div className="entry">
+            <div className="entry-name">{t.todo!.value!}</div>
+            <div className="entry-info">
+                <div className="label">
+                    <a href={githubLink}>
+                        {t.todo!.file!.relativePath}#L{t.todo!.line}
+                    </a>
+                </div>
+            </div>
         </div>
     );
 }
