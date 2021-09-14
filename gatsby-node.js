@@ -33,6 +33,11 @@ module.exports = {
             component: path.resolve("./src/Todo.tsx"),
             context: null
         });
+        actions.createPage({
+            path: "/blog",
+            component: path.resolve("./src/Posts.tsx"),
+            context: null
+        });
 
         // Generate pages for blog posts
         const queryResult = await graphql(`
