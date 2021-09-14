@@ -134,3 +134,22 @@ figure {
     margin-left: 0.25rem;
 }
 // }}}
+
+// Groups {{{
+.group + .group {
+    margin-top: 1.5rem;
+}
+
+.group-header {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    font-size: 1.25rem;
+    font-weight: 500;
+    letter-spacing: 0.025rem;
+}
+
+.group-header-line {
+    margin: 0 1rem;
+}
+// }}}

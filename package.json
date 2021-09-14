@@ -49,6 +49,7 @@
     },
     "dependencies": {
         "@types/markdown-it": "^12.2.1",
+        "date-fns": "^2.23.0",
         "gatsby": "^3.7.2",
         "gatsby-plugin-image": "^1.13.0",
         "gatsby-plugin-react-helmet": "^4.7.1",
