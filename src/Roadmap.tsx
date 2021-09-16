@@ -27,7 +27,6 @@ export const query = graphql`
     }
 `;
 
-// TODO: Clean the fuck up
 interface RoadmapPageProps {
     data: {allLeasot: GatsbyTypes.LeasotConnection};
 }
@@ -64,7 +63,6 @@ export default function RoadmapPage({data}: RoadmapPageProps): JSX.Element {
     );
 }
 
-// TODO: Style this component
 function RoadmapItem({t}: {t: GatsbyTypes.Leasot}): JSX.Element {
     const githubLink = `https://github.com/lexisother/GDOS-Website/tree/master/${t.todo!.file!.relativePath}#L${
         t.todo!.line

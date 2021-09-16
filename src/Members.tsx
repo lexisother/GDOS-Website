@@ -27,16 +27,6 @@ export default function MemberPage({data}: MemberPageProps): JSX.Element {
     return (
         <Page>
             <h1>Members</h1>
-            <figure className="avatar">
-                <StaticImage
-                    className="logo"
-                    src="./images/logo.png"
-                    width={500}
-                    height={128}
-                    placeholder="blurred"
-                    alt="Gilde DevOps Solutions logo"
-                />
-            </figure>
             <hr />
             <div className="cards">
                 {/* FIXME: I am not aware of a better way to do this. plsfix. */}
