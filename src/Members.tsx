@@ -39,10 +39,25 @@ export default function MemberPage({data}: MemberPageProps): JSX.Element {
             </figure>
             <hr />
             <div className="cards">
+                {/* FIXME: I am not aware of a better way to do this. plsfix. */}
                 {members[0]
                     ? members.map((member) => (
                           <Profile name={member.name} description={`Age: ${member.age}`}>
-                              <StaticImage src="./images/logo.png" alt="logo" height={100} />
+                              {member.name === "Keanu Timmermans" && (
+                                  <StaticImage src="./images/keanu.jpg" alt={member.name} height={130} />
+                              )}
+                              {member.name === "Njord-Romijn Witsiers" && (
+                                  <StaticImage src="./images/njord-romijn.jpg" alt={member.name} height={130} />
+                              )}
+                              {member.name === "Lars Leijssen" && (
+                                  <StaticImage src="./images/lars.jpg" alt={member.name} height={130} />
+                              )}
+                              {member.name === "Dion Welles" && (
+                                  <StaticImage src="./images/dion.jpg" alt={member.name} height={130} />
+                              )}
+                              {member.name === "Tom Vergeldt" && (
+                                  <StaticImage src="./images/tom.jpg" alt={member.name} height={130} />
+                              )}{" "}
                           </Profile>
                       ))
                     : "Nobody here but us chickens."}
