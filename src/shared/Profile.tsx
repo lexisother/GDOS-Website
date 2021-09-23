@@ -13,7 +13,11 @@ export default function Profile({children, name, description}: ProfileProps): JS
                 {children}
                 <p className="name">{name}</p>
             </div>
-            <div className="cardContent">{description}</div>
+            <div className="cardContent">
+                {description?.split("\n").map((descItem) => (
+                    <p>{descItem}</p>
+                ))}
+            </div>
         </div>
     );
 }
