@@ -7,17 +7,29 @@
     src: url("./fonts/maax-regular.woff2");
 }
 
+@media (prefers-color-scheme: light) {
+    body {
+        background-color: #ffffff !important;
+        color: #222222 !important;
+    }
+    hr {
+        background-color: #d3d0c8 !important;
+    }
+    .entry:hover {
+        background-color: lightgrey !important;
+    }
+}
+
 html {
     font-family: -apple-system, BlinkMacSystemFont, "Maax Regular", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
         "Open Sans", "Helvetica Neue", sans-serif;
     font-size: 20px;
-    color: rgb(38, 38, 38);
     line-height: 1.25;
 }
 
 body {
     padding: 2rem 2rem;
-    background: #212121;
+    background-color: #212121;
     color: #ffffff;
 }
 
@@ -30,11 +42,11 @@ hr {
     height: 1px;
     margin: 1.5rem auto;
     border: 0;
-    background-color: rgb(50, 50, 50);
+    background-color: #3d3d3d;
 }
 
 a {
-    color: cornflowerblue;
+    color: $gilde_pink;
     text-decoration: none;
 
     &:hover {
@@ -42,7 +54,7 @@ a {
         text-decoration-style: dotted;
     }
     &:visited {
-        color: cornflowerblue;
+        color: $gilde_pink;
         text-decoration: none;
     }
 }
