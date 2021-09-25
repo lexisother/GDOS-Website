@@ -1,9 +1,15 @@
 @import "./normalize.css";
 @import "./profile.scss";
+@import "brand";
+
+@font-face {
+    font-family: "Maax Regular";
+    src: url("./fonts/maax-regular.woff2");
+}
 
 html {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
-        "Helvetica Neue", sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Maax Regular", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+        "Open Sans", "Helvetica Neue", sans-serif;
     font-size: 20px;
     color: rgb(38, 38, 38);
     line-height: 1.25;
@@ -69,6 +75,7 @@ figure {
     margin: 1rem 0;
     font-size: 2rem;
     font-weight: 500;
+    color: $gilde_pink;
 }
 
 .section-info {
@@ -106,6 +113,11 @@ figure {
 // Lists {{{
 .entry {
     margin: 1rem 0;
+    padding: 20px;
+
+    &:hover {
+        background-color: #3d3d3d;
+    }
 }
 .entry-name {
     font-size: 1.15rem;

@@ -1,3 +1,5 @@
+@import "brand";
+
 .cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -6,14 +8,14 @@
     .card {
         border: 1px solid black;
         margin-bottom: 20px;
-        background-color: #303030;
+        background-color: white;
 
         .cardHeader {
             font-size: 30px;
             text-align: center;
             height: 8rem;
             width: 14.9rem;
-            background-color: #505050;
+            background-color: $gilde_dark_blue;
             padding-top: 20px;
             padding-bottom: 10px;
 
@@ -32,6 +34,7 @@
             }
         }
         .cardContent {
+            color: black;
             text-align: center;
             padding-top: 5px;
             padding-bottom: 10px;
