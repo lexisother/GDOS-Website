@@ -9,6 +9,7 @@ LICENSE
 public/
 src/images/
 src/__generated__
+src/css/fonts/
 data/
 .cache/
 .github/

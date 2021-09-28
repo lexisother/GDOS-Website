@@ -1,10 +1,28 @@
+@import "brand";
+
+@media (prefers-color-scheme: light) {
+    .card {
+        background-color: white !important;
+
+        .cardHeader {
+            color: white !important;
+            background-color: $gilde_dark_blue !important;
+        }
+        .cardContent {
+            color: black !important;
+        }
+    }
+}
+
 .cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 10px;
 
     .card {
-        border: 1px solid black;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 5px 5px 25px 0 rgba(0, 0, 0, 0.25);
         margin-bottom: 20px;
         background-color: #303030;
 
@@ -12,7 +30,7 @@
             font-size: 30px;
             text-align: center;
             height: 8rem;
-            width: 14.9rem;
+            width: 15rem;
             background-color: #505050;
             padding-top: 20px;
             padding-bottom: 10px;
