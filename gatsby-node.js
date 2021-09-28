@@ -39,8 +39,36 @@ module.exports = {
             context: null
         });
 
+        // Generate pages for members
+        const memberQueryResult = await graphql(`
+            query {
+                allMembersXlsxSheet1 {
+                    nodes {
+                        Name
+                        Age
+                        Role
+                        Education
+                    }
+                }
+            }
+        `);
+        if (memberQueryResult.errors) throw memberQueryResult.errors;
+
+        /**
+         * @type {GatsbyTypes.MembersXlsx__Sheet1Connection}
+         */
+        const membersConnection = memberQueryResult.data.allMembersXlsxSheet1;
+
+        membersConnection.nodes.forEach((member) => {
+            actions.createPage({
+                path: `/members/${member.Name?.replace(/\s/g, "-")}`,
+                component: path.resolve("./src/Member.tsx"),
+                context: {member}
+            });
+        });
+
         // Generate pages for blog posts
-        const queryResult = await graphql(`
+        const blogQueryResult = await graphql(`
             query {
                 allMarkdownRemark {
                     nodes {
@@ -52,12 +80,12 @@ module.exports = {
             }
         `);
 
-        if (queryResult.errors) throw queryResult.errors;
+        if (blogQueryResult.errors) throw blogQueryResult.errors;
 
         /**
          * @type {GatsbyTypes.MarkdownRemarkConnection}
          */
-        const blogPostConnection = queryResult.data.allMarkdownRemark;
+        const blogPostConnection = blogQueryResult.data.allMarkdownRemark;
 
         blogPostConnection.nodes.forEach((node) => {
             if (!node.fields) {

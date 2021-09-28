@@ -17,7 +17,7 @@ export const query = graphql`
     }
 `;
 
-interface MemberPageProps {
+interface MembersPageProps {
     data: {allMembersXlsxSheet1: GatsbyTypes.MembersXlsx__Sheet1Connection};
 }
 interface Member {
@@ -26,7 +26,7 @@ interface Member {
     role: string;
     education: string;
 }
-export default function MemberPage({data}: MemberPageProps): JSX.Element {
+export default function MembersPage({data}: MembersPageProps): JSX.Element {
     const members = [...data.allMembersXlsxSheet1.nodes].map((node) => ({
         name: node.Name!,
         age: node.Age!,
