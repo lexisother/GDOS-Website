@@ -21,7 +21,7 @@ export const query = graphql`
 interface MembersPageProps {
     data: {allMembersXlsxSheet1: GatsbyTypes.MembersXlsx__Sheet1Connection};
 }
-interface Member {
+export interface Member {
     name: string;
     age: string;
     role: string;
@@ -51,13 +51,7 @@ export default function MembersPage({data}: MembersPageProps): JSX.Element {
                         {/* FIXME: I am not aware of a better way to do the images. plsfix. */}
                         {members[0]
                             ? members.map((member) => (
-                                  <Profile
-                                      name={member.name}
-                                      description={`Age: ${differenceInYears(
-                                          new Date(),
-                                          new Date(member.age)
-                                      )}\nRole: ${member.role}`}
-                                  >
+                                  <Profile memberProp={member}>
                                       {member.name === "Keanu Timmermans" && (
                                           <StaticImage src="./images/keanu.jpg" alt={member.name} height={130} />
                                       )}

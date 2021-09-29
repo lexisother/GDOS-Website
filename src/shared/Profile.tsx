@@ -1,24 +1,30 @@
 import React from "react";
+import {differenceInYears} from "date-fns";
+import {Member} from "../Members";
 
 interface ProfileProps {
     children: React.ReactNode;
-    name: string;
-    description?: string;
+    memberProp: Member;
 }
 
-export default function Profile({children, name, description}: ProfileProps): JSX.Element {
+export default function Profile({children, memberProp}: ProfileProps): JSX.Element {
+    const member = {
+        name: memberProp.name!,
+        age: memberProp.age!,
+        role: memberProp.role!,
+        education: memberProp.education!
+    };
     return (
-        <a style={{textDecoration: "none"}} href={`/members/${name.replace(/\s/g, "-")}`}>
+        <a style={{textDecoration: "none"}} href={`/members/${member.name.replace(/\s/g, "-")}`}>
             {/* TODO: Give clear indication of the card being clickable */}
             <div className="card">
                 <div className="cardHeader">
                     {children}
-                    <p className="name">{name}</p>
+                    <p className="name">{member.name}</p>
                 </div>
                 <div className="cardContent">
-                    {description?.split("\n").map((descItem) => (
-                        <p>{descItem}</p>
-                    ))}
+                    <p>Age: {differenceInYears(new Date(), new Date(member.age))}</p>
+                    <p>Role: {member.role}</p>
                 </div>
             </div>
         </a>
