@@ -1,6 +1,7 @@
 import React from "react";
 import {graphql} from "gatsby";
 import {StaticImage} from "gatsby-plugin-image";
+import {differenceInYears} from "date-fns";
 import Page from "./shared/Page";
 import Profile from "./shared/Profile";
 
@@ -22,7 +23,7 @@ interface MembersPageProps {
 }
 interface Member {
     name: string;
-    age: number;
+    age: string;
     role: string;
     education: string;
 }
@@ -50,7 +51,13 @@ export default function MembersPage({data}: MembersPageProps): JSX.Element {
                         {/* FIXME: I am not aware of a better way to do the images. plsfix. */}
                         {members[0]
                             ? members.map((member) => (
-                                  <Profile name={member.name} description={`Age: ${member.age}\nRole: ${member.role}`}>
+                                  <Profile
+                                      name={member.name}
+                                      description={`Age: ${differenceInYears(
+                                          new Date(),
+                                          new Date(member.age)
+                                      )}\nRole: ${member.role}`}
+                                  >
                                       {member.name === "Keanu Timmermans" && (
                                           <StaticImage src="./images/keanu.jpg" alt={member.name} height={130} />
                                       )}
