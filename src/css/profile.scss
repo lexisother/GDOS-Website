@@ -24,6 +24,7 @@
         overflow: hidden;
         box-shadow: 5px 5px 25px 0 rgba(0, 0, 0, 0.25);
         margin-bottom: 20px;
+        color: white;
         background-color: #303030;
 
         .cardHeader {
@@ -50,6 +51,7 @@
             }
         }
         .cardContent {
+            color: white;
             text-align: center;
             padding-top: 5px;
             padding-bottom: 10px;
