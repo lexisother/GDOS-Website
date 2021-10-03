@@ -9,7 +9,7 @@ function resolvePlugin(plugin, options) {
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
-    flags: {PRESERVE_WEBPACK_CACHE: true},
+    flags: {FAST_DEV: true, PARALLEL_SOURCING: true, LMDB_STORE: true, DEV_SSR: false},
     plugins: [
         resolvePlugin("gatsby-source-filesystem", {
             name: "data",
