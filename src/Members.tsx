@@ -1,7 +1,6 @@
 import React from "react";
 import {graphql} from "gatsby";
 import {StaticImage} from "gatsby-plugin-image";
-import {differenceInYears} from "date-fns";
 import Page from "./shared/Page";
 import Profile from "./shared/Profile";
 
@@ -10,7 +9,7 @@ export const query = graphql`
         allMembersXlsxSheet1 {
             nodes {
                 Name
-                Age
+                DoB
                 Role
                 Education
             }
@@ -23,14 +22,14 @@ interface MembersPageProps {
 }
 export interface Member {
     name: string;
-    age: string;
+    dob: string;
     role: string;
     education: string;
 }
 export default function MembersPage({data}: MembersPageProps): JSX.Element {
     const members = [...data.allMembersXlsxSheet1.nodes].map((node) => ({
         name: node.Name!,
-        age: node.Age!,
+        dob: node.DoB!,
         role: node.Role!,
         education: node.Education!
     }));
@@ -50,8 +49,8 @@ export default function MembersPage({data}: MembersPageProps): JSX.Element {
                     <div className="cards">
                         {/* FIXME: I am not aware of a better way to do the images. plsfix. */}
                         {members[0]
-                            ? members.map((member) => (
-                                  <Profile memberProp={member}>
+                            ? members.map((member, i) => (
+                                  <Profile memberProp={member} key={i}>
                                       {member.name === "Keanu Timmermans" && (
                                           <StaticImage src="./images/keanu.jpg" alt={member.name} height={130} />
                                       )}

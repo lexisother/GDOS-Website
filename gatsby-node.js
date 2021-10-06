@@ -45,9 +45,15 @@ module.exports = {
                 allMembersXlsxSheet1 {
                     nodes {
                         Name
-                        Age
+                        DoB
                         Role
                         Education
+                        OfficeNum
+                        Email
+                        Phone
+                        Hobbys
+                        FavColour
+                        Pet
                     }
                 }
             }

@@ -10,7 +10,7 @@ interface ProfileProps {
 export default function Profile({children, memberProp}: ProfileProps): JSX.Element {
     const member = {
         name: memberProp.name!,
-        age: memberProp.age!,
+        dob: memberProp.dob!,
         role: memberProp.role!,
         education: memberProp.education!
     };
@@ -23,7 +23,7 @@ export default function Profile({children, memberProp}: ProfileProps): JSX.Eleme
                     <p className="name">{member.name}</p>
                 </div>
                 <div className="cardContent">
-                    <p>Age: {differenceInYears(new Date(), new Date(member.age))}</p>
+                    <p>Age: {differenceInYears(new Date(), new Date(member.dob))}</p>
                     <p>Role: {member.role}</p>
                 </div>
             </div>
