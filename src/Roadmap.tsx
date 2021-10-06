@@ -4,7 +4,7 @@ import {FaGithub} from "react-icons/fa";
 import Page from "./shared/Page";
 
 export const query = graphql`
-    query {
+    query ($language: String!) {
         allLeasot(sort: {fields: [todo___modifiedTime], order: DESC}) {
             group(field: todo___tag) {
                 fieldValue
@@ -21,6 +21,15 @@ export const query = graphql`
                             relativePath
                         }
                     }
+                }
+            }
+        }
+        locales: allLocale(filter: {ns: {in: ["common", "index"]}, language: {eq: $language}}) {
+            edges {
+                node {
+                    ns
+                    data
+                    language
                 }
             }
         }

@@ -1,0 +1,11 @@
+{
+  "age": "Age",
+  "role": "Role",
+  "education": "Education",
+  "officenum": "Office Number",
+  "email": "Email",
+  "phone": "Phone",
+  "hobbys": "Hobbys",
+  "favcolour": "Favourite Colour",
+  "pet": "Pet(s)"
+}

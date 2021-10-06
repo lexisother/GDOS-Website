@@ -1,5 +1,21 @@
+import {graphql} from "gatsby";
+import {Trans} from "gatsby-plugin-react-i18next";
 import React from "react";
 import Page from "./shared/Page";
+
+export const query = graphql`
+    query ($language: String!) {
+        locales: allLocale(filter: {ns: {in: ["common", "member"]}, language: {eq: $language}}) {
+            edges {
+                node {
+                    ns
+                    data
+                    language
+                }
+            }
+        }
+    }
+`;
 
 interface MemberPageProps {
     pageContext: {
@@ -30,8 +46,12 @@ export default function MemberPage({pageContext}: MemberPageProps): JSX.Element 
                 if (name !== "name")
                     return (
                         <div className="entry">
-                            <div className="entry-name">{name}</div>
-                            <div className="entry-description">{value}</div>
+                            <div className="entry-name">
+                                <Trans>{name}</Trans>
+                            </div>
+                            <div className="entry-description">
+                                <Trans>{value}</Trans>
+                            </div>
                         </div>
                     );
                 return <></>;

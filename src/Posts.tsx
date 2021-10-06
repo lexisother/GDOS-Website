@@ -5,7 +5,7 @@ import {format as formatDate, formatDuration} from "date-fns";
 import {FaCalendar, FaClock} from "react-icons/fa";
 
 export const query = graphql`
-    query {
+    query ($language: String!) {
         allMarkdownRemark {
             nodes {
                 frontmatter {
@@ -16,6 +16,15 @@ export const query = graphql`
                     slug
                 }
                 timeToRead
+            }
+        }
+        locales: allLocale(filter: {ns: {in: ["common", "index"]}, language: {eq: $language}}) {
+            edges {
+                node {
+                    ns
+                    data
+                    language
+                }
             }
         }
     }

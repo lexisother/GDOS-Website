@@ -1,6 +1,22 @@
 import React from "react";
+import {graphql} from "gatsby";
 import {StaticImage} from "gatsby-plugin-image";
+import {Trans} from "gatsby-plugin-react-i18next";
 import Page from "./shared/Page";
+
+export const query = graphql`
+    query ($language: String!) {
+        locales: allLocale(filter: {ns: {in: ["common", "index"]}, language: {eq: $language}}) {
+            edges {
+                node {
+                    ns
+                    data
+                    language
+                }
+            }
+        }
+    }
+`;
 
 export default function HomePage(): JSX.Element {
     return (
@@ -18,7 +34,7 @@ export default function HomePage(): JSX.Element {
             <hr />
             {/* TODO: Write a short pitch */}
             <div className="mainContent">
-                <p>Dit is de home-pagina van Gilde DevOps Solutions.</p>
+                <Trans>This is the home-page of Gilde DevOps Solutions.</Trans>
             </div>
         </Page>
     );

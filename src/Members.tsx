@@ -5,13 +5,22 @@ import Page from "./shared/Page";
 import Profile from "./shared/Profile";
 
 export const query = graphql`
-    query {
+    query ($language: String!) {
         allMembersXlsxSheet1 {
             nodes {
                 Name
                 DoB
                 Role
                 Education
+            }
+        }
+        locales: allLocale(filter: {ns: {in: ["common", "index"]}, language: {eq: $language}}) {
+            edges {
+                node {
+                    ns
+                    data
+                    language
+                }
             }
         }
     }

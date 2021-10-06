@@ -39,6 +39,22 @@ module.exports = {
             ]
         }),
         resolvePlugin("gatsby-source-filesystem", {
+            path: `${__dirname}/data/locales`,
+            name: `locale`
+        }),
+        resolvePlugin("gatsby-plugin-react-i18next", {
+            localeJsonSourceName: `locale`,
+            languages: [`en`, `nl`],
+            defaultLanguage: `en`,
+            i18nextOptions: {
+                interpolation: {
+                    escapeValue: false
+                },
+                keySeparator: false,
+                nsSeparator: false
+            }
+        }),
+        resolvePlugin("gatsby-source-filesystem", {
             path: __dirname,
             name: `leasot`,
             ignore: [

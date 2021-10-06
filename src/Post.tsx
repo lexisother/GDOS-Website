@@ -6,7 +6,7 @@ import "prismjs/themes/prism-tomorrow.css";
 import Page from "./shared/Page";
 
 export const query = graphql`
-    query ($slug: String) {
+    query ($slug: String, $language: String!) {
         markdownRemark(fields: {slug: {eq: $slug}}) {
             frontmatter {
                 title
@@ -18,6 +18,15 @@ export const query = graphql`
             timeToRead
             excerpt(pruneLength: 280)
             html
+        }
+        locales: allLocale(filter: {ns: {in: ["common", "index"]}, language: {eq: $language}}) {
+            edges {
+                node {
+                    ns
+                    data
+                    language
+                }
+            }
         }
     }
 `;

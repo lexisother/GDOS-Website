@@ -1,3 +1,4 @@
+import {Link, Trans, useI18next} from "gatsby-plugin-react-i18next";
 import React from "react";
 import Helmet from "react-helmet";
 import "../css/index.scss";
@@ -43,10 +44,33 @@ function Meta({title, description, keywords}: MetaProps): JSX.Element {
 }
 
 function Navigation(): JSX.Element {
+    const {languages, originalPath} = useI18next();
     return (
         <footer>
-            <a href="/">Home</a> | <a href="/members">Members</a> | <a href="/roadmap">Roadmap</a> |{" "}
-            <a href="/blog">Blog</a>
+            <Link to="/">
+                <Trans>Home</Trans>
+            </Link>{" "}
+            |{" "}
+            <Link to="/members/">
+                <Trans>Members</Trans>
+            </Link>{" "}
+            |{" "}
+            <Link to="/roadmap/">
+                <Trans>Roadmap</Trans>
+            </Link>{" "}
+            |{" "}
+            <Link to="/blog">
+                <Trans>Blog</Trans>
+            </Link>
+            <ul>
+                {languages.map((lng) => (
+                    <li key={lng}>
+                        <Link to={originalPath} language={lng}>
+                            {lng}
+                        </Link>
+                    </li>
+                ))}
+            </ul>
         </footer>
     );
 }
