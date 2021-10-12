@@ -50,7 +50,13 @@ export default function MemberPage({pageContext}: MemberPageProps): JSX.Element 
                                 <Trans>{name}</Trans>
                             </div>
                             <div className="entry-description">
-                                <Trans>{value}</Trans>
+                                {name === "email" ? (
+                                    <a>
+                                        <Trans>{value}</Trans>
+                                    </a>
+                                ) : (
+                                    <Trans>{value}</Trans>
+                                )}
                             </div>
                         </div>
                     );
