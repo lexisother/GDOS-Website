@@ -20,6 +20,13 @@
     }
 }
 
+@media only screen and (max-width: 980px) {
+    .page-container {
+        max-width: 2048px !important;
+        padding: 0 !important;
+    }
+}
+
 html {
     font-family: -apple-system, BlinkMacSystemFont, "Maax Regular", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
         "Open Sans", "Helvetica Neue", sans-serif;
