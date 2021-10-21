@@ -18,7 +18,7 @@ export const query = graphql`
                 timeToRead
             }
         }
-        locales: allLocale(filter: {ns: {in: ["common", "index"]}, language: {eq: $language}}) {
+        locales: allLocale(filter: {ns: {in: ["main"]}, language: {eq: $language}}) {
             edges {
                 node {
                     ns

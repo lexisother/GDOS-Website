@@ -7,5 +7,22 @@
   "phone": "Phone",
   "hobbys": "Hobbys",
   "favcolour": "Favourite Colour",
-  "pet": "Pet(s)"
+  "pet": "Pet(s)",
+  
+  "__hobbys__": "",
+  "Programmeren": "Programming",
+  "Slapen": "Sleeping",
+  "Atletiek": "Athletics",
+  "Vanalles": "Everything",
+  "Fitness, YuGiOh, Pokemon, karten": "Fitness, YuGiOh, Pokemon, karting",
+
+  "__pets__": "",
+  "1 hond": "1 dog",
+  "2 honden": "2 dogs",
+  "1 kat": "1 cat",
+
+  "__favcolors__": "",
+  "Blauw": "Blue",
+  "Donkergroen": "Dark green",
+  "Donkerblauw": "Dark blue"
 }

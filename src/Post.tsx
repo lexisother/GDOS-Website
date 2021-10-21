@@ -19,7 +19,7 @@ export const query = graphql`
             excerpt(pruneLength: 280)
             html
         }
-        locales: allLocale(filter: {ns: {in: ["common", "index"]}, language: {eq: $language}}) {
+        locales: allLocale(filter: {ns: {in: ["main"]}, language: {eq: $language}}) {
             edges {
                 node {
                     ns

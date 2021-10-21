@@ -14,7 +14,7 @@ export const query = graphql`
                 Education
             }
         }
-        locales: allLocale(filter: {ns: {in: ["common", "index"]}, language: {eq: $language}}) {
+        locales: allLocale(filter: {ns: {in: ["main", "members"]}, language: {eq: $language}}) {
             edges {
                 node {
                     ns

@@ -1,5 +1,6 @@
 import React from "react";
 import {differenceInYears} from "date-fns";
+import {Trans} from "gatsby-plugin-react-i18next";
 import {Member} from "../Members";
 
 interface ProfileProps {
@@ -23,8 +24,12 @@ export default function Profile({children, memberProp}: ProfileProps): JSX.Eleme
                     <p className="name">{member.name}</p>
                 </div>
                 <div className="cardContent">
-                    <p>Age: {differenceInYears(new Date(), new Date(member.dob))}</p>
-                    <p>Role: {member.role}</p>
+                    <p>
+                        <Trans>Age</Trans>: {differenceInYears(new Date(), new Date(member.dob))}
+                    </p>
+                    <p>
+                        <Trans>Role</Trans>: {member.role}
+                    </p>
                 </div>
             </div>
         </a>
