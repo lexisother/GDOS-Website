@@ -1,6 +1,6 @@
 import {graphql} from "gatsby";
 import {Trans} from "gatsby-plugin-react-i18next";
-import ModalVideo from "react-modal-video";
+import Modal from "react-modal";
 import React, {useState} from "react";
 import Page from "./shared/Page";
 
@@ -42,24 +42,26 @@ export default function MemberPage({pageContext}: MemberPageProps): JSX.Element 
 
     // Get the current URL, and replace everything that isn't the member name
     // with nothing.
-    const memberNameFromURL = document.baseURI.replace(/.*\//, "");
+    const memberNameFromURL = typeof document !== "undefined" ? document.baseURI.replace(/.*\//, "") : "";
 
     // Set up hooks for the ModalVideo.
     const [isOpen, setOpen] = useState(false);
 
+    const toggleModal = () => {
+        setOpen(!isOpen);
+    };
+
     return (
         <Page title={member.name}>
-            <ModalVideo
-                channel="custom"
-                autoplay
-                isOpen={isOpen}
-                url={`https://nova-vps.ml/~alyxia/static/${memberNameFromURL}.mp4`}
-                onClose={() => setOpen(false)}
-            />
-
             <div className="section-header">{member.name}</div>
 
-            <div className="entry" onClick={() => setOpen(true)} style={{cursor: "pointer"}}>
+            <Modal isOpen={isOpen} onRequestClose={toggleModal} contentLabel="video">
+                <video width="320" height="240" controls autoPlay>
+                    <source src={`https://nova-vps.ml/~alyxia/static/${memberNameFromURL}.mp4`} type="video/mp4" />
+                </video>
+            </Modal>
+
+            <div className="entry" onClick={toggleModal} style={{cursor: "pointer"}}>
                 <div className="entry-name">
                     <Trans>Introduction</Trans>
                 </div>
@@ -67,7 +69,6 @@ export default function MemberPage({pageContext}: MemberPageProps): JSX.Element 
                     <Trans>Click here for an introduction.</Trans>
                 </div>
             </div>
-
             {Object.entries(member).map(([name, value]) => {
                 if (name !== "name")
                     return (
