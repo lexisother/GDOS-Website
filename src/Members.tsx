@@ -1,6 +1,7 @@
-import React from "react";
+import React, {useState} from "react";
 import {graphql} from "gatsby";
 import {StaticImage} from "gatsby-plugin-image";
+import ModalVideo from "react-modal-video";
 import Page from "./shared/Page";
 import Profile from "./shared/Profile";
 
@@ -48,6 +49,7 @@ export default function MembersPage({data}: MembersPageProps): JSX.Element {
         categories[member.education] ||= [];
         categories[member.education].push(member);
     });
+
     return (
         <Page>
             <h1>Members</h1>

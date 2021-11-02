@@ -2,6 +2,7 @@ import {Link, Trans, useI18next} from "gatsby-plugin-react-i18next";
 import React from "react";
 import Helmet from "react-helmet";
 import "../css/index.scss";
+import "react-modal-video/scss/modal-video.scss";
 
 interface MetaProps {
     title?: string;
@@ -62,7 +63,7 @@ function Navigation(): JSX.Element {
             <Link to="/blog">
                 <Trans>Blog</Trans>
             </Link>
-            <ul>
+            <ul style={{listStyle: "none"}}>
                 {languages.map((lng) => (
                     <li key={lng}>
                         <Link to={originalPath} language={lng}>
