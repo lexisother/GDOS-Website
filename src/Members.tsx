@@ -62,21 +62,11 @@ export default function MembersPage({data}: MembersPageProps): JSX.Element {
                         {members[0]
                             ? members.map((member, i) => (
                                   <Profile memberProp={member} key={i}>
-                                      {member.name === "Keanu Timmermans" && (
-                                          <StaticImage src="./images/keanu.jpg" alt={member.name} height={130} />
-                                      )}
-                                      {member.name === "Njord-Romijn Witsiers" && (
-                                          <StaticImage src="./images/njord-romijn.jpg" alt={member.name} height={130} />
-                                      )}
-                                      {member.name === "Lars Leijssen" && (
-                                          <StaticImage src="./images/lars.jpg" alt={member.name} height={130} />
-                                      )}
-                                      {member.name === "Dion Welles" && (
-                                          <StaticImage src="./images/dion.jpg" alt={member.name} height={130} />
-                                      )}
-                                      {member.name === "Tom Vergeldt" && (
-                                          <StaticImage src="./images/tom.jpg" alt={member.name} height={130} />
-                                      )}{" "}
+                                      <img
+                                          src={`/images/${member.name.toLowerCase().split(" ")[0]}.jpg`}
+                                          alt={member.name}
+                                          height={130}
+                                      />
                                   </Profile>
                               ))
                             : "Nobody here but us chickens."}

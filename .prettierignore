@@ -7,6 +7,7 @@ LICENSE
 
 # Specific to this repository
 public/
+static/
 src/images/
 src/__generated__
 src/css/fonts/
