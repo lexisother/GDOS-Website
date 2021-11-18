@@ -3,6 +3,7 @@ import React from "react";
 import Helmet from "react-helmet";
 import "../css/index.scss";
 import "react-modal-video/scss/modal-video.scss";
+import useSiteMetadata from "./useSiteMetadata";
 
 interface MetaProps {
     title?: string;
@@ -11,6 +12,8 @@ interface MetaProps {
     imageUrl?: string;
 }
 function Meta({title, description, keywords}: MetaProps): JSX.Element {
+    const siteMetadata = useSiteMetadata();
+
     const defaults = {
         title: "Gilde DevOps Solutions",
         description: "De website van Gilde DevOps Solutions"
@@ -59,10 +62,14 @@ function Navigation(): JSX.Element {
             <Link to="/roadmap/">
                 <Trans>Roadmap</Trans>
             </Link>{" "}
-            |{" "}
-            <Link to="/blog">
-                <Trans>Blog</Trans>
-            </Link>
+            {siteMetadata!.blogEnabled && (
+                <>
+                    |{" "}
+                    <Link to="/blog">
+                        <Trans>Blog</Trans>
+                    </Link>
+                </>
+            )}
             <ul style={{listStyle: "none"}}>
                 {languages.map((lng) => (
                     <li key={lng}>

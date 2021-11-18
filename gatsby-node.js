@@ -1,6 +1,8 @@
 // @ts-check
 const path = require("path");
 
+const {siteMetadata} = require("./gatsby-config.js");
+
 /**
  * @type {import('gatsby').GatsbyNode}
  */
@@ -31,11 +33,6 @@ module.exports = {
         actions.createPage({
             path: "/roadmap",
             component: path.resolve("./src/Roadmap.tsx"),
-            context: null
-        });
-        actions.createPage({
-            path: "/blog",
-            component: path.resolve("./src/Posts.tsx"),
             context: null
         });
 
@@ -73,40 +70,48 @@ module.exports = {
             });
         });
 
-        // Generate pages for blog posts
-        const blogQueryResult = await graphql(`
-            query {
-                allMarkdownRemark {
-                    nodes {
-                        fields {
-                            slug
+        if (siteMetadata?.blogEnabled) {
+            actions.createPage({
+                path: "/blog",
+                component: path.resolve("./src/Posts.tsx"),
+                context: null
+            });
+
+            // Generate pages for blog posts
+            const blogQueryResult = await graphql(`
+                query {
+                    allMarkdownRemark {
+                        nodes {
+                            fields {
+                                slug
+                            }
                         }
                     }
                 }
-            }
-        `);
+            `);
 
-        if (blogQueryResult.errors) throw blogQueryResult.errors;
+            if (blogQueryResult.errors) throw blogQueryResult.errors;
 
-        /**
-         * @type {GatsbyTypes.MarkdownRemarkConnection}
-         */
-        const blogPostConnection = blogQueryResult.data.allMarkdownRemark;
+            /**
+             * @type {GatsbyTypes.MarkdownRemarkConnection}
+             */
+            const blogPostConnection = blogQueryResult.data.allMarkdownRemark;
 
-        blogPostConnection.nodes.forEach((node) => {
-            if (!node.fields) {
-                return;
-            }
+            blogPostConnection.nodes.forEach((node) => {
+                if (!node.fields) {
+                    return;
+                }
 
-            const {slug} = node.fields;
-            // const coverImagePath = `blog/${slug}/Cover.png`;
+                const {slug} = node.fields;
+                // const coverImagePath = `blog/${slug}/Cover.png`;
 
-            actions.createPage({
-                path: `/blog/${slug}`,
-                component: path.resolve("./src/Post.tsx"),
-                // context: {slug, coverImagePath}
-                context: {slug}
+                actions.createPage({
+                    path: `/blog/${slug}`,
+                    component: path.resolve("./src/Post.tsx"),
+                    // context: {slug, coverImagePath}
+                    context: {slug}
+                });
             });
-        });
+        }
     }
 };
