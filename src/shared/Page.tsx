@@ -12,8 +12,6 @@ interface MetaProps {
     imageUrl?: string;
 }
 function Meta({title, description, keywords}: MetaProps): JSX.Element {
-    const siteMetadata = useSiteMetadata();
-
     const defaults = {
         title: "Gilde DevOps Solutions",
         description: "De website van Gilde DevOps Solutions"
@@ -48,6 +46,7 @@ function Meta({title, description, keywords}: MetaProps): JSX.Element {
 }
 
 function Navigation(): JSX.Element {
+    const meta = useSiteMetadata();
     const {languages, originalPath} = useI18next();
     return (
         <footer>
@@ -62,7 +61,7 @@ function Navigation(): JSX.Element {
             <Link to="/roadmap/">
                 <Trans>Roadmap</Trans>
             </Link>{" "}
-            {siteMetadata!.blogEnabled && (
+            {meta!.blogEnabled && (
                 <>
                     |{" "}
                     <Link to="/blog">
